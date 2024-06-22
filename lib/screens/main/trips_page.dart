@@ -1,3 +1,7 @@
+import 'package:boom_driver/screens/tab/client_offers.dart';
+import 'package:boom_driver/screens/tab/completed_ride.dart';
+import 'package:boom_driver/screens/tab/progress.dart';
+import 'package:boom_driver/screens/tab/send_offers.dart';
 import 'package:boom_driver/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +20,7 @@ class _TripsState extends State<Trips> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 1,
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -25,7 +29,7 @@ class _TripsState extends State<Trips> {
             indicatorColor: mainBtnColor,
             labelColor: mainBtnColor,
             labelStyle: GoogleFonts.manrope(
-              fontSize: 14,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
             ),
             unselectedLabelColor: tabUnselectedColor,
@@ -38,21 +42,21 @@ class _TripsState extends State<Trips> {
                 text: "Offers",
               ),
               Tab(
-                text: "Send Offer",
+                text: "Request",
               ),
               Tab(
-                text: "In Progress",
+                text: "Progress",
               ),
               Tab(
-                text: "Completed Rides",
+                text: "Past Ride",
               ),
             ],
           ),
         ),
         body: const TabBarView(
           children: <Widget>[
-            MyOffers(),
-            DriverOffers(),
+            ClientOffers(),
+            SendOffers(),
             Progress(),
             CompletedRide()
           ],
