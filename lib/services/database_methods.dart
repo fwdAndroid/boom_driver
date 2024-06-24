@@ -14,11 +14,12 @@ class DatabaseMethods {
       required String ac,
       required String seats,
       required String driverName,
+      required String driverPhoto,
       required String registerNumber,
       required Uint8List file}) async {
     String res = 'Wrong driverEmail or carNameword';
     try {
-      String driverPhoto = await StorageMethods().uploadImageToStorage(
+      String carPhoto = await StorageMethods().uploadImageToStorage(
         'ProfilePics',
         file,
       );
@@ -30,6 +31,7 @@ class DatabaseMethods {
           driverName: driverName,
           driverId: FirebaseAuth.instance.currentUser!.uid,
           plate: plate,
+          carPhoto: carPhoto,
           driverEmail: driverEmail,
           seats: seats,
           carName: carName,

@@ -36,202 +36,198 @@ class _AddCarState extends State<AddCar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Add Car',
-          style: TextStyle(color: colorWhite),
-        ),
-        iconTheme: IconThemeData(color: colorWhite),
-        backgroundColor: mainBtnColor,
-      ),
-      body: SingleChildScrollView(
-        child: StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection("users")
-                .doc(FirebaseAuth.instance.currentUser!.uid)
-                .snapshots(),
-            builder: (context, AsyncSnapshot snapshot) {
-              var snap = snapshot.data;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () => selectImage(),
-                    child: Stack(
-                      children: [
-                        _image != null
-                            ? CircleAvatar(
-                                radius: 59,
-                                backgroundImage: MemoryImage(_image!))
-                            : CircleAvatar(
-                                radius: 59,
-                                backgroundImage:
-                                    AssetImage('assets/person.png'),
-                              ),
-                        Positioned(
-                            bottom: -10,
-                            left: 70,
-                            child: IconButton(
-                                onPressed: () => selectImage(),
-                                icon: Icon(
-                                  Icons.add_a_photo,
-                                  color: colorBlack,
-                                )))
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection("users")
+                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                  .snapshots(),
+              builder: (context, AsyncSnapshot snapshot) {
+                var snap = snapshot.data;
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: GestureDetector(
+                        onTap: () => selectImage(),
+                        child: Stack(
+                          children: [
+                            _image != null
+                                ? CircleAvatar(
+                                    radius: 59,
+                                    backgroundImage: MemoryImage(_image!))
+                                : CircleAvatar(
+                                    radius: 59,
+                                    backgroundImage:
+                                        AssetImage('assets/person.png'),
+                                  ),
+                            Positioned(
+                                bottom: -10,
+                                left: 70,
+                                child: IconButton(
+                                    onPressed: () => selectImage(),
+                                    icon: Icon(
+                                      Icons.add_a_photo,
+                                      color: colorBlack,
+                                    )))
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 16),
+                      child: Text(
+                        "Car Name",
+                        style: GoogleFonts.manrope(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: colorBlack),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8),
+                      child: TextFormInputField(
+                        controller: dateController,
+                        hintText: "Car Name",
+                        textInputType: TextInputType.name,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 16),
+                      child: Text(
+                        "Registration Number",
+                        style: GoogleFonts.manrope(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: colorBlack),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8),
+                      child: TextFormInputField(
+                        controller: registerController,
+                        hintText: "Registration Name",
+                        textInputType: TextInputType.name,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 16),
+                      child: Text(
+                        "Number Plate",
+                        style: GoogleFonts.manrope(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: colorBlack),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8),
+                      child: TextFormInputField(
+                        controller: timeController,
+                        hintText: "Number Plate",
+                        textInputType: TextInputType.name,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 16),
+                      child: Text(
+                        "Number of Seats",
+                        style: GoogleFonts.manrope(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: colorBlack),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8),
+                      child: TextFormInputField(
+                        controller: passengersController,
+                        hintText: "Number of Seats",
+                        textInputType: TextInputType.number,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8.0, right: 8, top: 16),
+                      child: Text(
+                        "AC",
+                        style: GoogleFonts.manrope(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: colorBlack),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Radio<String>(
+                          value: 'Yes',
+                          groupValue: _selectedValue,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        ),
+                        Text('Yes'),
+                        Radio<String>(
+                          value: 'No',
+                          groupValue: _selectedValue,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        ),
+                        Text('No'),
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8.0, right: 8, top: 16),
-                    child: Text(
-                      "Car Name",
-                      style: GoogleFonts.manrope(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: colorBlack),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: TextFormInputField(
-                      controller: dateController,
-                      hintText: "Car Name",
-                      textInputType: TextInputType.name,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8.0, right: 8, top: 16),
-                    child: Text(
-                      "Registration Number",
-                      style: GoogleFonts.manrope(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: colorBlack),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: TextFormInputField(
-                      controller: registerController,
-                      hintText: "Registration Name",
-                      textInputType: TextInputType.name,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8.0, right: 8, top: 16),
-                    child: Text(
-                      "Number Plate",
-                      style: GoogleFonts.manrope(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: colorBlack),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: TextFormInputField(
-                      controller: timeController,
-                      hintText: "Number Plate",
-                      textInputType: TextInputType.name,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8.0, right: 8, top: 16),
-                    child: Text(
-                      "Number of Seats",
-                      style: GoogleFonts.manrope(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: colorBlack),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: TextFormInputField(
-                      controller: passengersController,
-                      hintText: "Number of Seats",
-                      textInputType: TextInputType.number,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 8.0, right: 8, top: 16),
-                    child: Text(
-                      "AC",
-                      style: GoogleFonts.manrope(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: colorBlack),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Radio<String>(
-                        value: 'Yes',
-                        groupValue: _selectedValue,
-                        onChanged: (String? value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                      ),
-                      Text('Yes'),
-                      Radio<String>(
-                        value: 'No',
-                        groupValue: _selectedValue,
-                        onChanged: (String? value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                      ),
-                      Text('No'),
-                    ],
-                  ),
-                  Center(
-                      child: isAdded
-                          ? Center(
-                              child: CircularProgressIndicator(
-                                color: mainBtnColor,
-                              ),
-                            )
-                          : SaveButton(
-                              title: "Send Request",
-                              onTap: () async {
-                                if (dateController.text.isEmpty) {
-                                  showMessageBar(
-                                      "Car Name is Required ", context);
-                                } else if (timeController.text.isEmpty) {
-                                  showMessageBar(
-                                      "Number Plate is Required ", context);
-                                } else {
-                                  setState(() {
-                                    isAdded = true;
-                                  });
+                    Center(
+                        child: isAdded
+                            ? Center(
+                                child: CircularProgressIndicator(
+                                  color: mainBtnColor,
+                                ),
+                              )
+                            : SaveButton(
+                                title: "Send Request",
+                                onTap: () async {
+                                  if (dateController.text.isEmpty) {
+                                    showMessageBar(
+                                        "Car Name is Required ", context);
+                                  } else if (_image == null) {
+                                    showMessageBar(
+                                        "Image is Required ", context);
+                                  } else if (timeController.text.isEmpty) {
+                                    showMessageBar(
+                                        "Number Plate is Required ", context);
+                                  } else {
+                                    setState(() {
+                                      isAdded = true;
+                                    });
 
-                                  // Calculate urgency multiplier based on current time and selected time
+                                    // Calculate urgency multiplier based on current time and selected time
 
-                                  String result =
-                                      await DatabaseMethods().addCar(
-                                    driverEmail: snap['email'],
-                                    carName: dateController.text,
-                                    plate: timeController.text,
-                                    ac: _selectedValue!,
-                                    seats: passengersController.text,
-                                    driverName: snap['name'],
-                                    registerNumber: registerController.text,
-                                    file: _image!, // Pass your image data here
-                                  );
-                                  setState(() {
-                                    isAdded = false;
-                                  });
-                                  // Handle the result accordingly
-                                  if (result == 'success') {
+                                    await DatabaseMethods().addCar(
+                                        driverEmail: snap['email'],
+                                        carName: dateController.text,
+                                        plate: timeController.text,
+                                        ac: _selectedValue!,
+                                        seats: passengersController.text,
+                                        driverName: snap['fullName'],
+                                        registerNumber: registerController.text,
+                                        file:
+                                            _image!, // Pass your image data here
+                                        driverPhoto: snap['photoURL']);
+                                    setState(() {
+                                      isAdded = false;
+                                    });
+                                    // Handle the result accordingly
                                     showMessageBar(
                                         "Car Added Successfully", context);
                                     Navigator.push(
@@ -240,15 +236,12 @@ class _AddCarState extends State<AddCar> {
                                         builder: (builder) => MainDashboard(),
                                       ),
                                     );
-                                  } else {
-                                    // Show an error message
-                                    showMessageBar("Failed", context);
                                   }
-                                }
-                              }))
-                ],
-              );
-            }),
+                                }))
+                  ],
+                );
+              }),
+        ),
       ),
     );
   }

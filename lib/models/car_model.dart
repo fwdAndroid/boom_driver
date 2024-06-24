@@ -9,6 +9,7 @@ class CarModel {
   String plate;
   String ac;
   String seats;
+  String carPhoto;
   String uuid;
   String registerNumber;
 
@@ -19,6 +20,7 @@ class CarModel {
     required this.driverEmail,
     required this.registerNumber,
     required this.driverPhoto,
+    required this.carPhoto,
     required this.uuid,
     required this.plate,
     required this.seats,
@@ -29,15 +31,15 @@ class CarModel {
   Map<String, dynamic> toJson() => {
         'carName': carName,
         'ac': ac,
+        'carPhoto': carPhoto,
         "registerNumber": registerNumber,
         'driverId': driverId,
         'driverName': driverName,
         "seats": seats,
         'driverEmail': driverEmail,
-        'location': uuid,
+        'uuid': uuid,
         'plate': plate,
         'driverPhoto': driverPhoto,
-        'uuid': uuid,
       };
 
   ///
@@ -50,6 +52,7 @@ class CarModel {
       seats: snapshot['seats'],
       driverId: snapshot['driverId'],
       ac: snapshot['ac'],
+      carPhoto: snapshot['carPhoto'],
       driverName: snapshot['driverName'],
       driverPhoto: snapshot['driverPhoto'],
       uuid: snapshot['uuid'],
