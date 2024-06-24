@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:boom_driver/maps/map_screen.dart';
+import 'package:boom_driver/screens/auth/add_car.dart';
 import 'package:boom_driver/screens/auth/auth_login.dart';
 import 'package:boom_driver/screens/main/main_dashboard.dart';
 import 'package:boom_driver/screens/widgets/save_button.dart';
@@ -64,6 +65,25 @@ class SignUpAccount extends State<CustomerSignUp> {
               const SizedBox(
                 height: 10,
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Hello User",
+                  style: GoogleFonts.workSans(
+                      fontSize: 22, fontWeight: FontWeight.w500),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Create your account for \n better Experience",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.workSans(
+                      color: textformColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
               GestureDetector(
                 onTap: () => selectImage(),
                 child: Stack(
@@ -85,25 +105,6 @@ class SignUpAccount extends State<CustomerSignUp> {
                               color: colorBlack,
                             )))
                   ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Hello User",
-                  style: GoogleFonts.workSans(
-                      fontSize: 22, fontWeight: FontWeight.w500),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Create your account for \n better Experience",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.workSans(
-                      color: textformColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
                 ),
               ),
               Padding(
@@ -254,7 +255,7 @@ class SignUpAccount extends State<CustomerSignUp> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (builder) => MainDashboard()));
+                                      builder: (builder) => AddCar()));
                             }
                           }
                         }),

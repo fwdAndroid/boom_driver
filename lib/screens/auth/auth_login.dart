@@ -1,4 +1,5 @@
 import 'package:boom_driver/maps/google_map_signin_activity.dart';
+import 'package:boom_driver/screens/auth/add_car.dart';
 import 'package:boom_driver/screens/auth/signup_account.dart';
 import 'package:boom_driver/screens/main/main_dashboard.dart';
 import 'package:boom_driver/screens/widgets/save_button.dart';
@@ -215,7 +216,7 @@ class _AuthLoginState extends State<AuthLogin> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => MainDashboard()));
+                                  builder: (builder) => AddCar()));
                         }
 
                         setState(() {
