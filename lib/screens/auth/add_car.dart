@@ -195,7 +195,7 @@ class _AddCarState extends State<AddCar> {
                                 ),
                               )
                             : SaveButton(
-                                title: "Send Request",
+                                title: "Add Car",
                                 onTap: () async {
                                   if (dateController.text.isEmpty) {
                                     showMessageBar(
