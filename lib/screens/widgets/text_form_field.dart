@@ -7,6 +7,7 @@ class TextFormInputField extends StatelessWidget {
   final TextEditingController controller;
   final bool isPass;
   final String hintText;
+  final bool? readOnly;
 
   final IconData? IconSuffix;
   final IconData? preFixICon;
@@ -24,6 +25,7 @@ class TextFormInputField extends StatelessWidget {
       required this.hintText,
       this.maxlines,
       this.maxLenght,
+      this.readOnly,
       this.onTap,
       required this.textInputType})
       : super(key: key);
@@ -34,6 +36,7 @@ class TextFormInputField extends StatelessWidget {
       width: 343,
       height: 60,
       child: TextField(
+        readOnly: false,
         maxLength: maxLenght,
         maxLines: maxlines,
         onTap: onTap,

@@ -1,4 +1,5 @@
 import 'package:boom_driver/screens/auth/auth_login.dart';
+import 'package:boom_driver/screens/edit/account_info.dart';
 import 'package:boom_driver/screens/edit/edit_profile.dart';
 import 'package:boom_driver/screens/main/chat_page.dart';
 import 'package:boom_driver/screens/notificaiton/notifications.dart';
@@ -73,7 +74,7 @@ class _AccountPageState extends State<AccountPage> {
             ListTile(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (builder) => EditProfile()));
+                    MaterialPageRoute(builder: (builder) => AccountInfo()));
               },
               leading: Icon(
                 Icons.person,
