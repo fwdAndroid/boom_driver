@@ -24,7 +24,7 @@ class _ChatPageState extends State<ChatPage> {
     myController = TextEditingController();
     _stream = FirebaseFirestore.instance
         .collection("chats")
-        .where("driverUid", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+        .where("driverId", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
         .snapshots();
   }
 
@@ -62,14 +62,14 @@ class _ChatPageState extends State<ChatPage> {
                         if (value.trim().isEmpty) {
                           _stream = FirebaseFirestore.instance
                               .collection("chats")
-                              .where("driverUid",
+                              .where("driverId",
                                   isEqualTo:
                                       FirebaseAuth.instance.currentUser!.uid)
                               .snapshots();
                         } else {
                           _stream = FirebaseFirestore.instance
                               .collection("chats")
-                              .where("driverUid",
+                              .where("driverId",
                                   isEqualTo:
                                       FirebaseAuth.instance.currentUser!.uid)
                               .where("driverName",
@@ -142,13 +142,15 @@ class _ChatPageState extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (builder) => ChatDetailPage(
-                                    chatCustomerId: data['driverUid'],
-                                    customerId: data['driverUid'],
+                                    chatCustomerId: data['driverId'],
+                                    customerId: data['driverId'],
                                     customerName: data['driverName'],
                                     customerPhoto: data['driverPhoto'],
                                     providerId: data['uid'],
                                     providerName: data['name'],
                                     providerPhoto: data['photo'],
+                                    customerEmail: data['clientEmail'],
+                                    providerEmail: data['driverEmail'],
                                   ),
                                 ),
                               );
@@ -162,65 +164,7 @@ class _ChatPageState extends State<ChatPage> {
                               style: GoogleFonts.manrope(
                                   fontWeight: FontWeight.bold, fontSize: 16),
                             ),
-                            subtitle: StreamBuilder(
-                                stream: FirebaseFirestore.instance
-                                    .collection("messages")
-                                    .doc(groupChatId(data!['driverUid']))
-                                    .collection(groupChatId(data['driverUid']))
-                                    .orderBy("timestamp", descending: true)
-                                    .limit(1)
-                                    .snapshots(),
-                                builder: (BuildContext context,
-                                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                                  if (snapshot.hasData &&
-                                      snapshot.data != null &&
-                                      snapshot.data!.docs.isNotEmpty) {
-                                    final latestMessage =
-                                        snapshot.data!.docs.first.data()
-                                            as Map<String, dynamic>;
-                                    return Text(
-                                      latestMessage['content'],
-                                      style: GoogleFonts.nunitoSans(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
-                                          color: Colors.green),
-                                    );
-                                  } else {
-                                    return Text(
-                                      "No messages yet",
-                                      style: GoogleFonts.abhayaLibre(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    );
-                                  }
-                                }),
-                            trailing: Column(
-                              children: [
-                                Text(
-                                  formattedTime,
-                                  style: GoogleFonts.nunitoSans(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12,
-                                      color: Colors.black),
-                                ),
-                                Container(
-                                  height: 18,
-                                  width: 18,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.orange),
-                                  child: Text(
-                                    "2",
-                                    style: GoogleFonts.nunitoSans(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12,
-                                        color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            subtitle: Text(data['clientEmail']),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 8.0, right: 8),
@@ -239,14 +183,5 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
     );
-  }
-
-  String groupChatId(String customerId) {
-    if (FirebaseAuth.instance.currentUser!.uid.hashCode <=
-        customerId.hashCode) {
-      return "${FirebaseAuth.instance.currentUser!.uid}-$customerId";
-    } else {
-      return "$customerId-${FirebaseAuth.instance.currentUser!.uid}";
-    }
   }
 }

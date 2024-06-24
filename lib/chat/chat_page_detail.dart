@@ -14,23 +14,24 @@ import 'package:uuid/uuid.dart';
 class ChatDetailPage extends StatefulWidget {
   final providerId;
   final providerName;
-
+  final providerEmail;
   final providerPhoto;
   final customerId;
   final chatCustomerId;
   final customerName;
   final customerPhoto;
+  final customerEmail;
   ChatDetailPage(
       {super.key,
+      required this.customerEmail,
       required this.providerId,
       required this.chatCustomerId,
       required this.customerName,
       required this.customerPhoto,
+      required this.providerEmail,
       required this.customerId,
       required this.providerName,
-      required this.providerPhoto,
-      required customerEmail,
-      required providerEmail});
+      required this.providerPhoto});
 
   @override
   State<ChatDetailPage> createState() => _ChatDetailPageState();
@@ -333,6 +334,13 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   ),
                   SizedBox(
                     width: 15,
+                  ),
+                  Icon(
+                    Icons.mic,
+                    color: mainBtnColor,
+                  ),
+                  const SizedBox(
+                    width: 10,
                   ),
                   GestureDetector(
                     onTap: () {
