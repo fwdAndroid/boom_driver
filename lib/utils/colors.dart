@@ -7,3 +7,4 @@ final mainBtnColor = Color(0xff073C81);
 final secondaryTextColor = Color(0xff4F5E7B);
 final dividerColor = Color(0xffEBEBEB);
 final tabUnselectedColor = Color(0xffADB3BC);
+final borderColor = Color(0xffEBEBEB);
