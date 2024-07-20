@@ -1,3 +1,4 @@
+import 'package:boom_driver/screens/main/complete.dart';
 import 'package:boom_driver/screens/tab/client_offers.dart';
 import 'package:boom_driver/screens/tab/completed_ride.dart';
 import 'package:boom_driver/screens/tab/progress.dart';
@@ -58,7 +59,7 @@ class _TripsState extends State<Trips> {
             ClientOffers(),
             SendOffers(),
             Progress(),
-            CompletedRide()
+            Complete()
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-package com.example.boom_driver
+package com.booomridedriver.app
 
 import io.flutter.embedding.android.FlutterActivity
 

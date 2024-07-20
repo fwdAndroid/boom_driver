@@ -26,7 +26,7 @@ class _MainDashboardState extends State<MainDashboard> {
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: TextStyle(color: Color(0xffF4721E)),
+        selectedLabelStyle: TextStyle(color: Colors.blue),
         backgroundColor: mainBtnColor,
         onTap: (index) {
           setState(() {
@@ -37,7 +37,7 @@ class _MainDashboardState extends State<MainDashboard> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: _currentIndex == 0 ? Color(0xffF4721E) : textformColor,
+              color: _currentIndex == 0 ? Colors.blue : textformColor,
             ),
             label: 'Home',
             backgroundColor: mainBtnColor,
@@ -45,7 +45,7 @@ class _MainDashboardState extends State<MainDashboard> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.trip_origin,
-              color: _currentIndex == 1 ? Color(0xffF4721E) : textformColor,
+              color: _currentIndex == 1 ? Colors.blue : textformColor,
             ),
             label: 'Chat',
             backgroundColor: mainBtnColor,
@@ -53,7 +53,7 @@ class _MainDashboardState extends State<MainDashboard> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.chat_rounded,
-              color: _currentIndex == 2 ? Color(0xffF4721E) : textformColor,
+              color: _currentIndex == 2 ? Colors.blue : textformColor,
             ),
             label: 'Chat',
             backgroundColor: mainBtnColor,
@@ -61,7 +61,7 @@ class _MainDashboardState extends State<MainDashboard> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              color: _currentIndex == 3 ? Color(0xffF4721E) : textformColor,
+              color: _currentIndex == 3 ? Colors.blue : textformColor,
             ),
             label: 'Account',
             backgroundColor: mainBtnColor,

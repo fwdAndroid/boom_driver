@@ -40,7 +40,7 @@ class DatabaseMethods {
           driverPhoto: driverPhoto);
       await FirebaseFirestore.instance
           .collection('cars')
-          .doc(uuid)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
           .set(userModel.toJson());
       res = 'sucess';
     } catch (e) {

@@ -81,12 +81,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
         Center(
           child: SwitchListTile(
             title: Text(
-              'Turn On/Off Notifications',
+              ' Private Notifications',
               style:
                   GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 17),
             ), // The title of the ListTile
-            subtitle:
-                Text('Turn on and off Notification '), // Optional subtitle
+            subtitle: Text(
+                'Turn on and off Private Notification '), // Optional subtitle
             value: _switchValue, // The current value of the switch
             onChanged: (newValue) {
               // Callback when the switch is toggled

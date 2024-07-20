@@ -1,26 +1,79 @@
 {
   "project_info": {
-    "project_number": "575261100821",
-    "project_id": "boom-1b98b",
-    "storage_bucket": "boom-1b98b.appspot.com"
+    "project_number": "286663305679",
+    "project_id": "boomrideshare",
+    "storage_bucket": "boomrideshare.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:575261100821:android:9a7b40f42e104a3ff8771c",
+        "mobilesdk_app_id": "1:286663305679:android:06858adb4f5c62b9180aba",
         "android_client_info": {
-          "package_name": "com.example.boom_driver"
+          "package_name": "com.boomrideshare.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "286663305679-97urkqr3f3kc7tfim26u17hll23us0ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBwLuZU5HqcqGAIVT8qZ2VlvY8l6GqdKVk"
+          "current_key": "AIzaSyAqHiC4TNHQgHXmm8ACPqkfWjIFjIo6rU0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286663305679-97urkqr3f3kc7tfim26u17hll23us0ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "286663305679-j86mgpt9dk11lva2sclgteifsd8u80kl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.boomDriver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286663305679:android:8dd97bff39a5b477180aba",
+        "android_client_info": {
+          "package_name": "com.booomridedriver.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286663305679-97urkqr3f3kc7tfim26u17hll23us0ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqHiC4TNHQgHXmm8ACPqkfWjIFjIo6rU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286663305679-97urkqr3f3kc7tfim26u17hll23us0ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "286663305679-j86mgpt9dk11lva2sclgteifsd8u80kl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.boomDriver"
+              }
+            }
+          ]
         }
       }
     }

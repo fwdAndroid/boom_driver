@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -30,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -47,28 +41,51 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBwLuZU5HqcqGAIVT8qZ2VlvY8l6GqdKVk',
-    appId: '1:575261100821:android:9a7b40f42e104a3ff8771c',
-    messagingSenderId: '575261100821',
-    projectId: 'boom-1b98b',
-    storageBucket: 'boom-1b98b.appspot.com',
+    apiKey: 'AIzaSyAqHiC4TNHQgHXmm8ACPqkfWjIFjIo6rU0',
+    appId: '1:286663305679:android:8dd97bff39a5b477180aba',
+    messagingSenderId: '286663305679',
+    projectId: 'boomrideshare',
+    storageBucket: 'boomrideshare.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC6sZ-tayNm0lB7QU2cPdd3ntC4qEIUk2Y',
-    appId: '1:575261100821:ios:af0779bc8b6e7412f8771c',
-    messagingSenderId: '575261100821',
-    projectId: 'boom-1b98b',
-    storageBucket: 'boom-1b98b.appspot.com',
-    iosBundleId: 'com.example.boomDriver',
+    apiKey: 'AIzaSyCOzami1GNPAvTj9K3LeT-nA1vvbniX4xY',
+    appId: '1:286663305679:ios:ba7ef26306947ed1180aba',
+    messagingSenderId: '286663305679',
+    projectId: 'boomrideshare',
+    storageBucket: 'boomrideshare.appspot.com',
+    iosClientId: '286663305679-jtbqcp9hhrhljj8mice1ofomksv3hu7o.apps.googleusercontent.com',
+    iosBundleId: 'com.booomridedriver.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC6sZ-tayNm0lB7QU2cPdd3ntC4qEIUk2Y',
-    appId: '1:575261100821:ios:af0779bc8b6e7412f8771c',
-    messagingSenderId: '575261100821',
-    projectId: 'boom-1b98b',
-    storageBucket: 'boom-1b98b.appspot.com',
+    apiKey: 'AIzaSyCOzami1GNPAvTj9K3LeT-nA1vvbniX4xY',
+    appId: '1:286663305679:ios:35de89d0b0ddc0a4180aba',
+    messagingSenderId: '286663305679',
+    projectId: 'boomrideshare',
+    storageBucket: 'boomrideshare.appspot.com',
+    iosClientId: '286663305679-j86mgpt9dk11lva2sclgteifsd8u80kl.apps.googleusercontent.com',
     iosBundleId: 'com.example.boomDriver',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyD7Q0XGQD3wKaWgnrr1Y7ey1vu33q6oRBg',
+    appId: '1:286663305679:web:102df9710fe1d72f180aba',
+    messagingSenderId: '286663305679',
+    projectId: 'boomrideshare',
+    authDomain: 'boomrideshare.firebaseapp.com',
+    storageBucket: 'boomrideshare.appspot.com',
+    measurementId: 'G-08T383ZV6C',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyD7Q0XGQD3wKaWgnrr1Y7ey1vu33q6oRBg',
+    appId: '1:286663305679:web:b844c17c476b4438180aba',
+    messagingSenderId: '286663305679',
+    projectId: 'boomrideshare',
+    authDomain: 'boomrideshare.firebaseapp.com',
+    storageBucket: 'boomrideshare.appspot.com',
+    measurementId: 'G-L8RPQV331N',
+  );
+
 }

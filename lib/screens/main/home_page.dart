@@ -1,3 +1,5 @@
+import 'package:boom_driver/screens/main/bid_request.dart';
+import 'package:boom_driver/screens/main/personal_trips.dart';
 import 'package:boom_driver/screens/main/trips_page.dart';
 import 'package:boom_driver/screens/tab/progress.dart';
 import 'package:boom_driver/utils/colors.dart';
@@ -18,83 +20,108 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Image.asset(
-          "assets/main.png",
-          height: 200,
-          width: MediaQuery.of(context).size.width,
-          fit: BoxFit.cover,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
-          child: Card(
-            child: ListTile(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (builder) => Trips()));
-              },
-              leading: Icon(
-                Icons.trip_origin,
-              ),
-              title: Text(
-                "All Trip",
-                style: GoogleFonts.manrope(
-                    fontWeight: FontWeight.bold, fontSize: 14),
-              ),
-              subtitle: Text(
-                "All current trips details are shown here",
-                style: TextStyle(fontSize: 10, color: colorBlack),
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/main.png",
+            height: 200,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => PersonalTrips()));
+                },
+                leading: Icon(
+                  Icons.taxi_alert,
+                ),
+                title: Text(
+                  "Personal Ride",
+                  style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                subtitle: Text(
+                  "All ride request personal send by customers",
+                  style: TextStyle(fontSize: 10, color: colorBlack),
+                ),
               ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Card(
-            child: ListTile(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (builder) => Progress()));
-              },
-              leading: Icon(
-                Icons.trip_origin,
-              ),
-              title: Text(
-                "New Trip",
-                style: GoogleFonts.manrope(
-                    fontWeight: FontWeight.bold, fontSize: 14),
-              ),
-              subtitle: Text(
-                "All current trips details are shown here",
-                style: TextStyle(fontSize: 10, color: colorBlack),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => BidRequest()));
+                },
+                leading: Icon(
+                  Icons.taxi_alert,
+                ),
+                title: Text(
+                  "Ride Request",
+                  style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                subtitle: Text(
+                  "All ride request personal send by customers",
+                  style: TextStyle(fontSize: 10, color: colorBlack),
+                ),
               ),
             ),
           ),
-        ),
-        Card(
-          child: ListTile(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (builder) => Support()));
-            },
-            leading: Icon(
-              Icons.help,
-            ),
-            title: Text(
-              "Support",
-              style: GoogleFonts.manrope(
-                  fontWeight: FontWeight.bold, fontSize: 14),
-            ),
-            subtitle: Text(
-              "All current trips details are shown here",
-              style: TextStyle(fontSize: 10, color: colorBlack),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => Trips()));
+                },
+                leading: Icon(
+                  Icons.trip_origin,
+                ),
+                title: Text(
+                  "All Trip",
+                  style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                subtitle: Text(
+                  "All current trips details are shown here",
+                  style: TextStyle(fontSize: 10, color: colorBlack),
+                ),
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
-          child: Card(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => Progress()));
+                },
+                leading: Icon(
+                  Icons.trip_origin,
+                ),
+                title: Text(
+                  "New Trip",
+                  style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                subtitle: Text(
+                  "All current trips details are shown here",
+                  style: TextStyle(fontSize: 10, color: colorBlack),
+                ),
+              ),
+            ),
+          ),
+          Card(
             child: ListTile(
               onTap: () {
                 Navigator.push(context,
@@ -104,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                 Icons.help,
               ),
               title: Text(
-                "Earning",
+                "Support",
                 style: GoogleFonts.manrope(
                     fontWeight: FontWeight.bold, fontSize: 14),
               ),
@@ -114,8 +141,31 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => Support()));
+                },
+                leading: Icon(
+                  Icons.help,
+                ),
+                title: Text(
+                  "Earning",
+                  style: GoogleFonts.manrope(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                subtitle: Text(
+                  "All current trips details are shown here",
+                  style: TextStyle(fontSize: 10, color: colorBlack),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     ));
   }
 }
