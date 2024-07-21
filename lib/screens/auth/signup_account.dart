@@ -3,10 +3,10 @@ import 'dart:typed_data';
 import 'package:boom_driver/maps/map_screen.dart';
 import 'package:boom_driver/screens/auth/add_car.dart';
 import 'package:boom_driver/screens/auth/auth_login.dart';
-import 'package:boom_driver/screens/main/main_dashboard.dart';
 import 'package:boom_driver/screens/widgets/save_button.dart';
 import 'package:boom_driver/screens/widgets/text_form_field.dart';
 import 'package:boom_driver/services/auth_methods.dart';
+import 'package:boom_driver/status/status_page.dart';
 import 'package:boom_driver/utils/colors.dart';
 import 'package:boom_driver/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
@@ -255,7 +255,7 @@ class SignUpAccount extends State<CustomerSignUp> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (builder) => AddCar()));
+                                      builder: (builder) => StatusPage()));
                             }
                           }
                         }),

@@ -14,7 +14,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditCarProfile extends StatefulWidget {
-  const EditCarProfile({super.key});
+  final uuid;
+  const EditCarProfile({super.key, required this.uuid});
 
   @override
   State<EditCarProfile> createState() => _EditCarProfileState();
@@ -168,7 +169,7 @@ class _EditCarProfileState extends State<EditCarProfile> {
 
                               await FirebaseFirestore.instance
                                   .collection("cars")
-                                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                                  .doc(widget.uuid)
                                   .update({
                                 "carName": carNameController.text.trim(),
                                 "registerNumber":

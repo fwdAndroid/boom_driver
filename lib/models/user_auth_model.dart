@@ -8,6 +8,7 @@ class UserModel {
   String photoURL;
   String contactNumber;
   bool isblocked;
+  bool isAllowed;
   String confrimPassword;
   String userLocation;
   final review;
@@ -24,6 +25,7 @@ class UserModel {
     required this.userLocation,
     required this.contactNumber,
     required this.confrimPassword,
+    required this.isAllowed,
     required this.fullName,
   });
 
@@ -35,6 +37,7 @@ class UserModel {
         "review": review,
         'uid': uid,
         'email': email,
+        'isAllowed': isAllowed,
         "confrimPassword": confrimPassword,
         'password': password,
         'location': userLocation,
@@ -50,6 +53,7 @@ class UserModel {
       fullName: snapshot['fullName'],
       review: snapshot['review'],
       rate: snapshot['rate'],
+      isAllowed: snapshot['isAllowed'],
       confrimPassword: snapshot['confrimPassword'],
       uid: snapshot['uid'],
       isblocked: snapshot['isblocked'],

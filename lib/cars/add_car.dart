@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:boom_driver/screens/main/main_dashboard.dart';
-import 'package:boom_driver/screens/verification/driver_verification.dart';
 import 'package:boom_driver/screens/widgets/save_button.dart';
 import 'package:boom_driver/screens/widgets/text_form_field.dart';
 import 'package:boom_driver/services/database_methods.dart';
@@ -234,8 +233,7 @@ class _AddCarState extends State<AddCar> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (builder) =>
-                                            DriverVerification(),
+                                        builder: (builder) => MainDashboard(),
                                       ),
                                     );
                                   }

@@ -40,6 +40,7 @@ class AuthMethods {
         );
         //Add User to the database with modal
         UserModel userModel = UserModel(
+            isAllowed: false,
             isblocked: false,
             rate: 0,
             review: {},

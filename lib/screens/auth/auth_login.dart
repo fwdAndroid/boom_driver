@@ -1,10 +1,10 @@
 import 'package:boom_driver/maps/google_map_signin_activity.dart';
-import 'package:boom_driver/screens/auth/add_car.dart';
 import 'package:boom_driver/screens/auth/signup_account.dart';
 import 'package:boom_driver/screens/main/main_dashboard.dart';
 import 'package:boom_driver/screens/widgets/save_button.dart';
 import 'package:boom_driver/services/auth_methods.dart';
 import 'package:boom_driver/services/google_signin_method.dart';
+import 'package:boom_driver/status/status_page.dart';
 import 'package:boom_driver/utils/colors.dart';
 import 'package:boom_driver/utils/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -130,7 +130,7 @@ class _AuthLoginState extends State<AuthLogin> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (builder) => MainDashboard()));
+                              builder: (builder) => StatusPage()));
                     } else {
                       showMessageBar(rse, context);
                     }
@@ -200,6 +200,7 @@ class _AuthLoginState extends State<AuthLogin> {
                             "photoURL": user?.photoURL?.toString(),
                             "email": user?.email,
                             "isblocked": false,
+                            "isAllowed": false,
                             "location": "No Location Selected",
                             "fullName": user?.displayName,
                             "contactNumber": contactNumber,
@@ -216,7 +217,7 @@ class _AuthLoginState extends State<AuthLogin> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => AddCar()));
+                                  builder: (builder) => StatusPage()));
                         }
 
                         setState(() {
